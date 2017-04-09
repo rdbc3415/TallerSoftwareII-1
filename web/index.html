@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<!--
+Developed by: Alexis Peralta Holyoak.
+-->
+<html>
+    <head>
+        <title>TODO supply a title</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">  
+        <script type="text/javascript" src="js/jquery-3.2.0.min.js"></script>
+        <script>
+
+        $(function() {
+          var canvas = $('canvas')[0];
+          var ctx = canvas.getContext('2d');
+
+          var w = canvas.width = 700;
+          var h = canvas.height = 400;
+          with(ctx) {
+            fillStyle = '#fff';
+            fillRect(0, 0, w, h);
+            fill();
+            beginPath();
+            lineWidth = 2;
+            strokeStyle = '#000';
+            moveTo(w/7, h/2);
+            lineTo(6*w/7, h/2);
+            stroke();          
+            for(var i = 1;i <= 4; i++) {
+              beginPath();
+              strokeStyle = '#000';
+              lineWidth = 2;             
+              moveTo(w/8 + i * 100 , h/2 - 20);
+              lineTo(w/8 + i * 100  , h/2 + 20);
+              fillStyle = '#000';
+              var x;
+              if(i===1){
+                  x=2;
+              }else if(i===2){
+                  x=10;
+              }else if(i===3){
+                  x=15;
+              }else if(i===4){
+                  x=25;
+              }
+              
+              fillText(x, (w/8 + i * 100 )- 5, h/2 + 35);           
+              fill();
+              stroke();
+            }
+          }
+        });
+        </script>
+        
+    </head>
+        <body>
+            <canvas id="canvas"></canvas>
+                       
+      </body>
+</html>
